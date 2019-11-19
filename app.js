@@ -150,10 +150,10 @@ app.get("/dbTest", function (req, res) {
 
 function dbConnection() {
     let conn = mysql.createConnection({
-        host: "gmgcjwawatv599gq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-        user: "vr51fr35ztycmd35",
-        password: "pfoyhzg1z1yusckl",
-        database: "s0potvjirbd4ea7f"
+        host: "z1ntn1zv0f1qbh8u.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        user: "ioy4onmqv1weylss",
+        password: "asejam6131qtn63u",
+        database: "zqsk0u3fvjp9025s"
     });//createConnection
     return conn;
 }
