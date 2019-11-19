@@ -1,0 +1,24 @@
+{
+  "name": "f2019cst336-lab10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janamey123/f2019cst336-lab10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janamey123/f2019cst336-lab10/issues"
+  },
+  "homepage": "https://github.com/janamey123/f2019cst336-lab10#readme",
+  "dependencies": {
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  }
+}
