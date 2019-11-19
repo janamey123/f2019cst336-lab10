@@ -1,0 +1,34 @@
+<div class="bg-light" id="backgroundColor">
+    <hr>
+    <small>
+        CST 336: Internet Programming. 2019 &copy; Thien, Meyer<br/>
+        Used for academic purpose only.
+    </small>
+    <figure>
+        <img src="img/CSUMB_logo.jpg" class="rounded" alt="California State University Monterey Bay logo"/>
+    </figure>
+    <br><br><br>
+</div>
+
+<script>
+    // Source: look at Sources -> Sticky
+    mybutton = document.getElementById("myBtn");
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
+</body>
+</html>

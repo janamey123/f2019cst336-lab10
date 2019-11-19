@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title> Famous Quote Search </title>
+    <link rel="stylesheet" href="/public/css/styles.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body class="text-center">
 
-</body>
-</html>
+<h1 class="jumbotron"> Famous Quote Search </h1>
+
+<form action="/quotes">
+
+    Keyword: <input type="text" name="keyword">
+    <br><br>
+    Category:
+    <select name="category">
+        <option value=""> Select One</option>
+        <% categories.forEach(function(i){ %>
+            <option> <%= i.category %>  </option>
+        <% }); %>
+    </select>
+    <br><br>
+    Author:
+    <select name="firstName">
+        <option value=""> Select One</option>
+        <% authors.forEach(function(i){ %>
+            <option> <%= i.firstName + ' ' + i.lastName %>  </option>
+        <% }); %>
+    </select>
+
+    <br><br>
+    <input type="radio" id="M" name="sex" value="M"> <label for="M">Male</label>
+    <input type="radio" id="F" name="sex" value="F"> <label for="F">Female</label>
+    <br><br>
+
+    <button class="btn btn-lg btn-success"> Search!</button>
+
+</form>
+<div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">&uarr;</button>
+</div>
+<br><br>
+<% include partials/footer %>
