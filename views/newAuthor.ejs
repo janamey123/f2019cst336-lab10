@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<h1> Adding a New Author </h1>
+
+
+<form method="POST">
+
+    First name: <input type="text" name="firstName"><br>
+    Last name: <input type="text" name="lastName"><br>
+    Gender: <input type="radio" name="gender" value="F">Female
+    <input type="radio" name="gender" value="M">Male
+    <!--TODO: Add the remaining fields -->
+    <br><br>
+    <button>Add Author</button>
+
+    <%= typeof (message) != "undefined" ? message : "" %>
+
+</form>
+
+<div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">&uarr;</button>
+</div>
+
+<br><br>
+<% include partials/footer %>

@@ -15,15 +15,12 @@
         $(document).ready(function () {
 
             $("#a").on("click", function () {
-                //alert("test");
                 $.ajax({
-
                     method: "GET",
-                    url: "/authorInfo",
+                    url: "/authorInfo?=",
                     dataType: "json",
                     data: {"authorId": $(this).attr("id")},
                     success: function (result, status) {
-                        //alert(result[0].firstName);
                         $("#authorName").html(result[0].firstName + " " + result[0].lastName);
                         $("#bio").html(result[0].biography);
 
