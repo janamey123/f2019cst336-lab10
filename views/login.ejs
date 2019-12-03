@@ -13,12 +13,11 @@
                     "password": $("#password").val()
                 },
                 success: function (result, status) {
-                    //alert(result);
-                    if (!result) {
-                        alert("Wrong credentials!");
-                    } else {
-                        location.href = "/admin"; //redirects to admin route
-                    }
+                    //if (!result) {
+                    //  alert("Wrong credentials!");
+                    //} else {
+                    location.href = "/admin"; //redirects to admin route
+                    //}
                 }
             });//ajax
         });//click
