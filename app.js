@@ -23,11 +23,24 @@ app.get("/authorInfo", async function (req, res) {
 });//authorInfo
 
 app.get("/admin", async function (req, res) {
-
     let authorList = await getAuthorList();
-    //console.log(authorList);
     res.render("admin", {"authorList": authorList});
 });//admin
+
+app.get("/login", function(req, res){
+    res.render("login");
+});
+
+app.post("/loginProcess", function(req, res) {
+
+    if (req.body.password == "secret") {
+        res.send({"loginSuccess":true});
+    } else {
+        res.send(false);
+    }
+
+
+});
 
 app.get("/addAuthor", function (req, res) {
     res.render("newAuthor");
@@ -38,10 +51,7 @@ app.get("/admin", function (req, res) {
 });//admin
 
 app.post("/addAuthor", async function (req, res) {
-    //res.render("newAuthor");
     let rows = await insertAuthor(req.body);
-    console.log(rows);
-    //res.send("First name: " + req.body.firstName); //When using the POST method, the form info is stored in req.body
     let message = "Author WAS NOT added to the database!";
     if (rows.affectedRows > 0) {
         message = "Author successfully added!";
@@ -51,16 +61,12 @@ app.post("/addAuthor", async function (req, res) {
 
 app.get("/updateAuthor", async function (req, res) {
     let authorInfo = await getAuthorInfo(req.query.authorId);
-    //console.log(authorInfo);
     res.render("updateAuthor", {"authorInfo": authorInfo});
 });
 
 app.post("/updateAuthor", async function (req, res) {
     let rows = await updateAuthor(req.body);
-
     let authorInfo = req.body;
-    console.log(rows);
-    //res.send("First name: " + req.body.firstName); //When using the POST method, the form info is stored in req.body
     let message = "Author WAS NOT updated!";
     if (rows.affectedRows > 0) {
         message = "Author successfully updated!";
@@ -71,16 +77,12 @@ app.post("/updateAuthor", async function (req, res) {
 
 app.get("/deleteAuthor", async function (req, res) {
     let rows = await deleteAuthor(req.query.authorId);
-    console.log(rows);
-    //res.send("First name: " + req.body.firstName); //When using the POST method, the form info is stored in req.body
-    let errorOrSuccess = "Author WAS NOT deleted!";
+    let message = "Author WAS NOT deleted!";
     if (rows.affectedRows > 0) {
-        errorOrSuccess = "Author successfully deleted!";
+        message = "Author successfully deleted!";
     }
-
     let authorList = await getAuthorList();
-    //console.log(authorList);
-    res.render("admin", {"authorList": authorList, "errorOrSuccess": errorOrSuccess});
+    res.render("admin", {"authorList": authorList, "message": message});
 });
 
 function getAuthorList() {
@@ -224,18 +226,16 @@ function insertAuthor(body) {
             console.log("Connected!");
 
             let sql = `INSERT INTO l9_author
-                        (firstName, lastName, sex)
-                         VALUES (?,?,?)`;
+                        (firstName, lastName, dob, dod, sex, profession, country, portrait, biography)
+                         VALUES (?,?,?,?,?,?,?,?,?)`;
 
-            let params = [body.firstName, body.lastName, body.gender];
+            let params = [body.firstName, body.lastName, body.dob, body.dod, body.gender, body.profession, body.country, body.portrait, body.biography];
 
             conn.query(sql, params, function (err, rows, fields) {
                 if (err) throw err;
-                //res.send(rows);
                 conn.end();
                 resolve(rows);
             });
-
         });//connect
     });//promise
 }
@@ -289,11 +289,9 @@ function deleteAuthor(authorId) {
 
             conn.query(sql, [authorId], function (err, rows, fields) {
                 if (err) throw err;
-                //res.send(rows);
                 conn.end();
                 resolve(rows);
             });
-
         });//connect
     });//promise
 }

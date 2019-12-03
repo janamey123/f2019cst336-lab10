@@ -1,0 +1,45 @@
+<% include partials/header.ejs %>
+
+<script>
+    $(document).ready(function () {
+
+        $("#loginBtn").on("click", function () {
+            $.ajax({
+                method: "post",
+                url: "/loginProcess",
+                dataType: "json",
+                data: {
+                    "username": $("#username").val(),
+                    "password": $("#password").val()
+                },
+                success: function (result, status) {
+                    //alert(result);
+                    if (!result) {
+                        alert("Wrong credentials!");
+                    } else {
+                        location.href = "/admin"; //redirects to admin route
+                    }
+                }
+            });//ajax
+        });//click
+    }); //document.ready
+</script>
+
+</head>
+<body class="text-center">
+
+<h1 class="jumbotron"> Login </h1>
+
+Username: <input type="text" name="username" id="username"/><br><br>
+
+Password: <input type="password" id="password"><br><br>
+
+<button id="loginBtn" class="btn btn-info">Login!</button>
+
+<br><br>
+<div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">&uarr;</button>
+</div>
+
+<br><br>
+<% include partials/footer %>
