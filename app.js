@@ -33,6 +33,10 @@ app.get("/addAuthor", function (req, res) {
     res.render("newAuthor");
 });//addAuthor
 
+app.get("/admin", function (req, res) {
+    res.render("admin");
+});//admin
+
 app.post("/addAuthor", async function (req, res) {
     //res.render("newAuthor");
     let rows = await insertAuthor(req.body);

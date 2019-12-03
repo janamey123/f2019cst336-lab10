@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title> Famous Quote Search </title>
-    <link rel="stylesheet" href="/css/styles.css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<% include partials/header.ejs %>
+
 </head>
 <body class="text-center">
 
@@ -12,8 +7,8 @@
 
 <form method="POST">
 
-    First name: <input type="text" name="firstName" value="<%= authorInfo.firstName %>"><br>
-    Last name: <input type="text" name="lastName" value="<%= authorInfo.lastName %>"><br>
+    First name: <input type="text" name="firstName" value="<%= authorInfo.firstName %>"><br><br>
+    Last name: <input type="text" name="lastName" value="<%= authorInfo.lastName %>"><br><br>
     Gender: <input type="radio" name="gender" value="F"
             <%= authorInfo.sex == 'F' ? "checked" : "" %>
     >Female
