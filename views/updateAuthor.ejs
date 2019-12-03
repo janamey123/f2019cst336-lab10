@@ -9,16 +9,18 @@
 
     First name: <input type="text" name="firstName" value="<%= authorInfo.firstName %>"><br><br>
     Last name: <input type="text" name="lastName" value="<%= authorInfo.lastName %>"><br><br>
-    Gender: <input type="radio" name="gender" value="F"
-            <%= authorInfo.sex == 'F' ? "checked" : "" %>
+    Gender: <input type="radio" name="gender" value="F"<%= authorInfo.sex == 'F' ? "checked" : "" %>
     >Female
-    <input type="radio" name="gender" value="M"
-            <%= authorInfo.sex == 'M' ? "checked" : "" %>
+    <input type="radio" name="gender" value="M"<%= authorInfo.sex == 'M' ? "checked" : "" %>
     >Male
+    <input type="hidden" name="authorId" value="<%= authorInfo.authorId %>"><br><br>
+    Date of Birth: <input type="date" name="dob" value="<%= authorInfo.dob %>"><br><br>
+    Date of Death: <input type="date" name="dod" value="<%= authorInfo.dod %>"><br><br>
+    Profession: <input type="text" name="profession" value="<%= authorInfo.profession %>"><br><br>
+    Country: <input type="text" name="country" value="<%= authorInfo.country %>"><br><br>
+    Portrait: <input type="url" name="portrait" value="<%= authorInfo.portrait %>"><br><br>
+    Biography: <input type="text" name="biography" value="<%= authorInfo.biography %>"><br><br>
 
-    <input type="hidden" name="authorId" value="<%= authorInfo.authorId %>">
-
-    <!--TODO: Add the remaining fields -->
     <br><br>
     <button class="btn btn-outline-primary">Update Author</button>
 

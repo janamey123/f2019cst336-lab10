@@ -73,14 +73,14 @@ app.get("/deleteAuthor", async function (req, res) {
     let rows = await deleteAuthor(req.query.authorId);
     console.log(rows);
     //res.send("First name: " + req.body.firstName); //When using the POST method, the form info is stored in req.body
-    let message = "Author WAS NOT deleted!";
+    let errorOrSuccess = "Author WAS NOT deleted!";
     if (rows.affectedRows > 0) {
-        message = "Author successfully deleted!";
+        errorOrSuccess = "Author successfully deleted!";
     }
 
     let authorList = await getAuthorList();
     //console.log(authorList);
-    res.render("admin", {"authorList": authorList});
+    res.render("admin", {"authorList": authorList, "errorOrSuccess": errorOrSuccess});
 });
 
 function getAuthorList() {
@@ -251,10 +251,16 @@ function updateAuthor(body) {
             let sql = `UPDATE l9_author
                       SET firstName = ?, 
                           lastName  = ?, 
-                                sex = ?
+                                sex = ?,
+                                dob = ?,
+                                dod = ?,
+                         profession = ?,
+                            country = ?,
+                           portrait = ?,
+                          biography = ?
                      WHERE authorId = ?`;
 
-            let params = [body.firstName, body.lastName, body.gender, body.authorId];
+            let params = [body.firstName, body.lastName, body.gender, body.dob, body.dod, body.profession, body.portrait, body.biography, body.authorId];
 
             console.log(sql);
 
