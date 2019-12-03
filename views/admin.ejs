@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title> Famous Quote Search </title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body class="text-center">
 
-<h1> Admin Section </h1>
+<h1 class="jumbotron"> Admin Section </h1>
 
 <form action="/addAuthor">
-    <button> Add New Author</button>
+    <button class="btn btn-outline-primary"> Add New Author</button>
 </form>
 
 <h3>Authors</h3>
 
 <% authorList.forEach(function(author){ %>
 
-
-    [<a href="/updateAuthor?authorId=<%= author.authorId %>">UPDATE</a>]
-    [<a href="/deleteAuthor?authorId=<%= author.authorId %>">DELETE</a>]
+    <a href="/updateAuthor?authorId=<%= author.authorId %>" class="btn btn-secondary btn-sm active">UPDATE</a>
+    <a href="/deleteAuthor?authorId=<%= author.authorId %>" class="btn btn-secondary btn-sm active">DELETE</a>
 
     <%= author.firstName %> <%= author.lastName %> <br>
-
 <% }) %>
 
 <div>

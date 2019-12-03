@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title> Famous Quote Search </title>
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
+<body class="text-center">
 
-<h1> Updating Author </h1>
+<h1 class="jumbotron"> Updating Author </h1>
 
 <form method="POST">
 
@@ -22,7 +25,7 @@
 
     <!--TODO: Add the remaining fields -->
     <br><br>
-    <button>Update Author</button>
+    <button class="btn btn-outline-primary">Update Author</button>
 
     <%= typeof (message) != "undefined" ? message : "" %>
 
